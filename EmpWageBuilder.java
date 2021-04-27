@@ -9,13 +9,14 @@ public class EmpWageBuilder {
         final int IS_PART_TIME = 2;
         final int WAGE_RATE = 20;
         final int MAX_WORKING_DAYS = 20;
+        final int MAX_WORKING_HRS = 100;
 
         int empHr = 0;
         int totalWorkingHr = 0;
         int salary = 0;
 
         int day = 1;
-        while (day <= MAX_WORKING_DAYS) {
+        while ((day <= MAX_WORKING_DAYS) && (totalWorkingHr <= MAX_WORKING_HRS)) {
 
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
