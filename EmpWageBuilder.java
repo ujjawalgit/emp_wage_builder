@@ -11,18 +11,23 @@ public class EmpWageBuilder {
 
         int empHr = 0;
         int salary = 0;
+        int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
-        double empCheck = Math.floor(Math.random() * 10) % 3;
+        switch (empCheck) {
 
-        if (empCheck == IS_FULL_TIME) {
-            System.out.print("Employee is present");
-            empHr = 8;
-        } else if (empCheck == IS_PART_TIME) {
-            System.out.print("Employee is part time ");
-            empHr = 4;
-        } else {
-            System.out.print("Employee is absent");
-            empHr = 0;
+            case IS_FULL_TIME:
+                System.out.print("Employee is present");
+                empHr = 8;
+                break;
+
+            case IS_PART_TIME:
+                System.out.print("Employee is part time ");
+                empHr = 4;
+                break;
+
+            default:
+                System.out.print("Employee is absent");
+                empHr = 0;
         }
 
         salary = (WAGE_RATE * empHr);
