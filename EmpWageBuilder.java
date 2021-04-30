@@ -13,6 +13,7 @@ public class EmpWageBuilder {
         int salary = 0;
 
         int day = 1;
+
         while ((day <= MAX_WORKING_DAYS) && (totalWorkingHr <= MAX_WORKING_HRS)) {
 
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
