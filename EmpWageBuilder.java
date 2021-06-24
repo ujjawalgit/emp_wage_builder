@@ -54,7 +54,6 @@ public class EmpWageBuilder {
             totalWorkingHr += empHr;
             day++;
         }
-
         salary = (WAGE_RATE * totalWorkingHr);
         return salary;
     }
