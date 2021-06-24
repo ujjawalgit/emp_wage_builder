@@ -17,6 +17,14 @@ public class EmpWageBuilder {
         this.companyName = companyName;
     }
 
+    @Override
+    public String toString() {
+        return "EmpWageBuilder{" +
+                "companyName='" + companyName + '\'' +
+                ", totalWage=" + totalWage +
+                '}';
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
         EmpWageBuilder BharatBiotech = new EmpWageBuilder(500, 24, 240, "BharatBiotech");
@@ -24,8 +32,9 @@ public class EmpWageBuilder {
         /* calling method to compute totalWage for a company*/
         BharatBiotech.computeEmpWage();
         BharatForge.computeEmpWage();
-        System.out.println("\nCompany name:" + BharatBiotech.companyName + "\ntotal empWage:" + BharatBiotech.totalWage);
-        System.out.println("\nCompany name:" + BharatForge.companyName + "\ntotal empWage:" + BharatForge.totalWage);
+        System.out.println(BharatBiotech);
+        System.out.println(BharatForge);
+
     }
 
     /*function to compute total wage  for company*/
