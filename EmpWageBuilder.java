@@ -1,23 +1,29 @@
 package com.empwagebuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmpWageBuilder implements IComputeEmpWage {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
     private List<CompanyEmpWage> companyEmpWageList ;
+    private Map<String, CompanyEmpWage> companyEmpWageMap;
 
     public EmpWageBuilder() {
         companyEmpWageList = new ArrayList<>();
+        companyEmpWageMap = new HashMap<>();
     }
 
     public void addCompanyEmpWage(String companyName, int WAGE_RATE, int MAX_WORKING_DAYS, int MAX_WORKING_HRS) {
         CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, WAGE_RATE, MAX_WORKING_DAYS, MAX_WORKING_HRS);
         companyEmpWageList.add(companyEmpWage);
+        companyEmpWageMap.put(companyName, companyEmpWage);
     }
 
+    /* computing empWage for each company and saving it*/
     public void computeEmpWage() {
         for (CompanyEmpWage companyEmpWage : companyEmpWageList) {
             companyEmpWage.setTotalWage(this.computeEmpWage(companyEmpWage));
@@ -50,6 +56,11 @@ public class EmpWageBuilder implements IComputeEmpWage {
         return  (companyEmpWage.WAGE_RATE * totalWorkingHr); //total wage calculation
     }
 
+    @Override
+    public int getTotalWage(String companyName) {
+        return companyEmpWageMap.get(companyName).totalEmpWage;
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
         /* calling method to compute totalWage for a company*/
@@ -57,6 +68,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
         empWageBuilder.addCompanyEmpWage("BharatBiotech",500, 24, 240);
         empWageBuilder.addCompanyEmpWage("BharatForge",400, 20, 200);
         empWageBuilder.computeEmpWage();
+        System.out.println(empWageBuilder.getTotalWage("BharatForge"));
     }
 }
 

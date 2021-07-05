@@ -8,6 +8,14 @@ public class CompanyEmpWage {
    public int[] dailyWage;
    public int totalEmpWage;
 
+    /**
+     * parametrised constructor
+     * @param companyName
+     * @param WAGE_RATE
+     * @param MAX_WORKING_DAYS
+     * @param MAX_WORKING_HRS
+     */
+
     public CompanyEmpWage(String companyName, int WAGE_RATE, int MAX_WORKING_DAYS, int MAX_WORKING_HRS) {
         this.companyName = companyName;
         this.WAGE_RATE = WAGE_RATE;
@@ -15,6 +23,10 @@ public class CompanyEmpWage {
         this.MAX_WORKING_HRS = MAX_WORKING_HRS;
     }
 
+    /**
+     * saving total wage for each company employee
+     * @param totalWage
+     */
     public void setTotalWage(int totalWage) {
         this.totalEmpWage = totalWage;
     }
