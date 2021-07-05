@@ -23,7 +23,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
         companyEmpWageMap.put(companyName, companyEmpWage);
     }
 
-    /* computing empWage for each company and saving it*/
+    /* computing empWage for each company and saving it */
     public void computeEmpWage() {
         for (CompanyEmpWage companyEmpWage : companyEmpWageList) {
             companyEmpWage.setTotalWage(this.computeEmpWage(companyEmpWage));
@@ -31,7 +31,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
         }
     }
 
-    /*function to compute total wage  for company*/
+    /* function to compute total wage  for company */
     public int computeEmpWage(CompanyEmpWage companyEmpWage) {
         int empHr;
         int totalWorkingHr = 0;
