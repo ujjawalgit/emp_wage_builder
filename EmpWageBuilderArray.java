@@ -21,7 +21,6 @@ public class EmpWageBuilderArray implements IComputeEmpWage {
             companyEmpWageArray[i].setTotalWage(this.computeEmpWage(companyEmpWageArray[i]));
             System.out.println(companyEmpWageArray[i]);
         }
-
     }
 
     public static void main(String[] args) {
@@ -31,7 +30,6 @@ public class EmpWageBuilderArray implements IComputeEmpWage {
         empWageBuilderArray.addCompanyEmpWage("BharatBiotech",500, 24, 240);
         empWageBuilderArray.addCompanyEmpWage("BharatForge",400, 20, 200);
         empWageBuilderArray.computeEmpWage();
-
     }
 
     /*function to compute total wage  for company*/
