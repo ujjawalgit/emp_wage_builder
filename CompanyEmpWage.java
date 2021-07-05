@@ -5,6 +5,7 @@ public class CompanyEmpWage {
    public final int WAGE_RATE;
    public final int MAX_WORKING_DAYS;
    public final int MAX_WORKING_HRS;
+   public int[] dailyWage;
    public int totalEmpWage;
 
     public CompanyEmpWage(String companyName, int WAGE_RATE, int MAX_WORKING_DAYS, int MAX_WORKING_HRS) {

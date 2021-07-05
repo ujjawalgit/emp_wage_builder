@@ -25,20 +25,12 @@ public class EmpWageBuilder implements IComputeEmpWage {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation Program");
-        /* calling method to compute totalWage for a company*/
-        EmpWageBuilder empWageBuilder = new EmpWageBuilder();
-        empWageBuilder.addCompanyEmpWage("BharatBiotech",500, 24, 240);
-        empWageBuilder.addCompanyEmpWage("BharatForge",400, 20, 200);
-        empWageBuilder.computeEmpWage();
-    }
-
     /*function to compute total wage  for company*/
     public int computeEmpWage(CompanyEmpWage companyEmpWage) {
         int empHr;
         int totalWorkingHr = 0;
         int day = 1;
+        companyEmpWage.dailyWage = new int[companyEmpWage.MAX_WORKING_DAYS];
         while ((day <= companyEmpWage.MAX_WORKING_DAYS) && (totalWorkingHr <= companyEmpWage.MAX_WORKING_HRS)) {
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
             switch (empCheck) {
@@ -51,10 +43,20 @@ public class EmpWageBuilder implements IComputeEmpWage {
                 default:
                     empHr = 0;
             }
+            companyEmpWage.dailyWage[day-1] = empHr*companyEmpWage.WAGE_RATE;
             totalWorkingHr += empHr;
             day++;
         }
         return  (companyEmpWage.WAGE_RATE * totalWorkingHr); //total wage calculation
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Employee Wage Computation Program");
+        /* calling method to compute totalWage for a company*/
+        EmpWageBuilder empWageBuilder = new EmpWageBuilder();
+        empWageBuilder.addCompanyEmpWage("BharatBiotech",500, 24, 240);
+        empWageBuilder.addCompanyEmpWage("BharatForge",400, 20, 200);
+        empWageBuilder.computeEmpWage();
     }
 }
 
