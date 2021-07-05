@@ -1,35 +1,37 @@
 package com.empwagebuilder;
 
-public class EmpWageBuilderArray implements IComputeEmpWage {
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmpWageBuilder implements IComputeEmpWage {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
-    private int numOfCompany=0;
-    private  CompanyEmpWage[] companyEmpWageArray;
+    private List<CompanyEmpWage> companyEmpWageList ;
 
-    public EmpWageBuilderArray() {
-        companyEmpWageArray = new CompanyEmpWage[5];
+    public EmpWageBuilder() {
+        companyEmpWageList = new ArrayList<>();
     }
 
     public void addCompanyEmpWage(String companyName, int WAGE_RATE, int MAX_WORKING_DAYS, int MAX_WORKING_HRS) {
-        companyEmpWageArray[numOfCompany] = new CompanyEmpWage(companyName, WAGE_RATE, MAX_WORKING_DAYS, MAX_WORKING_HRS);
-        numOfCompany++;
+        CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, WAGE_RATE, MAX_WORKING_DAYS, MAX_WORKING_HRS);
+        companyEmpWageList.add(companyEmpWage);
     }
 
     public void computeEmpWage() {
-        for (int i=0; i<numOfCompany; i++) {
-            companyEmpWageArray[i].setTotalWage(this.computeEmpWage(companyEmpWageArray[i]));
-            System.out.println(companyEmpWageArray[i]);
+        for (CompanyEmpWage companyEmpWage : companyEmpWageList) {
+            companyEmpWage.setTotalWage(this.computeEmpWage(companyEmpWage));
+            System.out.println(companyEmpWage);
         }
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
         /* calling method to compute totalWage for a company*/
-        EmpWageBuilderArray empWageBuilderArray = new EmpWageBuilderArray();
-        empWageBuilderArray.addCompanyEmpWage("BharatBiotech",500, 24, 240);
-        empWageBuilderArray.addCompanyEmpWage("BharatForge",400, 20, 200);
-        empWageBuilderArray.computeEmpWage();
+        EmpWageBuilder empWageBuilder = new EmpWageBuilder();
+        empWageBuilder.addCompanyEmpWage("BharatBiotech",500, 24, 240);
+        empWageBuilder.addCompanyEmpWage("BharatForge",400, 20, 200);
+        empWageBuilder.computeEmpWage();
     }
 
     /*function to compute total wage  for company*/
