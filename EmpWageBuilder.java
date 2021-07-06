@@ -63,12 +63,13 @@ public class EmpWageBuilder implements IComputeEmpWage {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
-        /* calling method to compute totalWage for a company*/
         EmpWageBuilder empWageBuilder = new EmpWageBuilder();
         empWageBuilder.addCompanyEmpWage("BharatBiotech",500, 24, 240);
         empWageBuilder.addCompanyEmpWage("BharatForge",400, 20, 200);
+      /* calling method to compute totalWage for each company*/
         empWageBuilder.computeEmpWage();
         System.out.println(empWageBuilder.getTotalWage("BharatForge"));
+        System.out.print( "Total Emp Wage:" + computeEmpWage() );
     }
 }
 
